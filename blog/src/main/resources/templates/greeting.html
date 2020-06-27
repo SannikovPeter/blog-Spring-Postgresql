@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${name}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1>Пример главной страницы</h1>
+        <p class="lead text-muted">Какая то информация о альбомах представленных снизу</p>
+        <p>
+            <a href="" class="btn btn-primary my-2">Кнопка главного действия</a>
+            <a href="#" class="btn btn-secondary my-2">Второй вариант действия</a>
+        </p>
+    </div>
+</section>
+
+<div th:insert="blocks/footer :: footer"></div>
+<p th:text="'Hello, ' + ${name} + '!'"/>
+</body>
+</html>
