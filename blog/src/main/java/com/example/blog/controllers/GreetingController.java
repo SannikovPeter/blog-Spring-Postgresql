@@ -15,7 +15,7 @@ public class GreetingController {
     }
 
     @GetMapping("/about")
-    public String about(Model model){
+    public String about(Model model) {
         model.addAttribute("title", "Страница о нас");
         return "about";
     }
