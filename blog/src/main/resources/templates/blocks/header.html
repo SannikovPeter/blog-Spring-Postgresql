@@ -2,11 +2,59 @@
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
         <h5 class="my-0 mr-md-auto font-weight-normal">Мой чудный блог</h5>
         <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="/greeting">Главная</a>
-            <a class="p-2 text-dark" href="/blog">Блог</a>
-            <a class="p-2 text-dark" href="/blog/add">Добавить статью</a>
-            <a class="p-2 text-dark" href="/about">О нас</a>
-                    </nav>
-        <a class="btn btn-outline-primary" href="#">Sign up</a>
+            <a class="p-2 text-dark" href="/main">Главная</a>
+            <a class="p-2 text-dark" href="/main/blog">Блог</a>
+            <a class="p-2 text-dark" href="/main/about">О нас</a>
+        </nav>
+        <div>
+            <a class="btn btn-primary p-2" data-toggle="modal" href="#insertModal">Вход</a>
+            <a class="btn btn-outline-primary p-2" href="/main/signUp">Регистрация</a>
+        </div>
+    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <div th:each="bc : ${crumbs}">
+                <li class="breadcrumb-item" aria-current="page">
+                    <span th:if="${!bc.isLast()}"><a th:text="${bc.getName()} + '/'"
+                                                     th:href="${bc.getAddress()}"></a></span>
+                    <span th:if="${bc.isLast()}" th:text="${bc.getName()}" class="breadcrumb-item active">
+                </span>
+                </li>
+            </div>
+        </ol>
+    </nav>
+
+    <div class="modal fade" id="insertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Вход</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="container p-3">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">Ни кому не сообщайте свой пароль</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Пароль</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Запомните меня</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Войти</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>

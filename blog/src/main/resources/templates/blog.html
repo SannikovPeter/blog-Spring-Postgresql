@@ -1,23 +1,24 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Блог сайта</title>
+    <title th:text="${title}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
 
-<div class="container mt-5">
-    <h1>Блог сайта</h1>
-    <div th:each="el : ${posts}" class="alert alert-info mt-2">
+<div class="container">
+    <h3 th:text="${title}"/>
+    <a class="btn btn-lg btn-outline-secondary mb-3" href="/main/blog/add">Добавить статью</a>
+    <a th:each="el : ${posts}" class="alert alert-info mt-2 card" th:href="'/main/blog/' + ${el.id}">
         <h3 th:text="${el.title}"></h3>
         <p th:text="${el.anons}"></p>
-        <a th:href="'/blog/' + ${el.id}" class="btn btn-success">Детальнее</a>
-    </div>
+<!--        <a th:href="'/main/blog/' + ${el.id}" class="btn btn-success">Детальнее</a>-->
+    </a>
 </div>
 
 <div th:insert="blocks/footer :: footer"></div>
-<!--<p th:text="'Hello, ' + ${name} + '!'"/>-->
 </body>
 </html>

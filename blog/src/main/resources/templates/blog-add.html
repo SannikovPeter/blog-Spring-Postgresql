@@ -1,32 +1,27 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Блог сайта</title>
+    <title th:text="${title}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
 
-<div class="container mt-5 mb-5">
-    <h1>Добавление статьи</h1>
-    <form action="/blog/add" method="post">
-        <div class="col-md-5 md-5">
-            <input type="text" name="title" placeholder="Введите название статьи" class="form-control"><br>
+<div class="container mt-5 p-3 rounded" style="background-color: #eee">
+    <h3 th:text="${title}"></h3>
+    <form action="/main/blog/add" method="post" class="p-3" style="height: 400px" >
+        <div class="w-50">
+            <input type="text" name="title" placeholder="Название статьи" class="form-control"><br>
         </div>
-        <div>
-            <input type="text" name="title" placeholder="Введите название статьи" class="form-control"><br>
+        <div class="w-50">
+            <input type="text" name="anons" placeholder="Анонс статьи" class="form-control"><br>
         </div>
-        <div>
-            <input type="text" name="anons" placeholder="Введите анонс статьи" class="form-control"><br>
-        </div>
-        <textarea name="full_text" placeholder="Введите название статьи" class="form-control"></textarea><br>
+        <textarea name="full_text" placeholder="Текст статьи" class="form-control h-50"></textarea><br>
         <button type="submit" class="btn btn-success">Добавить статью</button>
     </form>
-
 </div>
 
 <div th:insert="blocks/footer :: footer"></div>
-<input type="text" class="form-control" placeholder="" value="" required="">
 </body>
 </html>

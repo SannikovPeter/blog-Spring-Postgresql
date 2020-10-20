@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="${name}"/>
+    <title th:text="${title}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
@@ -10,7 +10,7 @@
 
 <section class="jumbotron text-center">
     <div class="container">
-        <h1>Пример главной страницы</h1>
+        <h3>Пример главной страницы</h3>
         <p class="lead text-muted">Какая то информация о альбомах представленных снизу</p>
         <p>
             <a href="" class="btn btn-primary my-2">Кнопка главного действия</a>
@@ -20,6 +20,5 @@
 </section>
 
 <div th:insert="blocks/footer :: footer"></div>
-<p th:text="'Hello, ' + ${name} + '!'"/>
 </body>
 </html>

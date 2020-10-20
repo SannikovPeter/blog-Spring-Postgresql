@@ -1,20 +1,20 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Редактирование статьи</title>
+    <title th:text="${title}"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
 
-<div class="container mt-5 mb-5">
-    <h1>Редактирование статьи</h1>
+<div class="container mt-5 p-3 rounded" style="background-color: #eee">
+    <h3 th:text="${title}"></h3>
     <div th:each="el : ${post}">
-        <form method="post">
-            <input type="text" th:value="${el.title}" name="title" placeholder="Введите название статьи" class="form-control"><br>
-            <input type="text" th:value="${el.anons}" name="anons" placeholder="Введите анонс статьи" class="form-control"><br>
-            <textarea name="full_text" placeholder="Введите название статьи" class="form-control" th:text="${el.fullText}"/><br>
+        <form method="post" class="p-3" style="height: 400px">
+            <input type="text" th:value="${el.title}" name="title" placeholder="Введите название статьи" class="form-control w-50"><br>
+            <input type="text" th:value="${el.anons}" name="anons" placeholder="Введите анонс статьи" class="form-control w-50"><br>
+            <textarea name="full_text" placeholder="Введите текст статьи" class="form-control h-50" th:text="${el.fullText}"/><br>
             <button type="submit" class="btn btn-success">Обновить</button>
         </form>
     </div>
